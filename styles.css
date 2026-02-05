@@ -310,7 +310,7 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 auto;
     padding: 0 60px;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 2fr 3fr;  /* 左侧占2/5，右侧占3/5 */
     gap: 80px;
 }
 
@@ -327,11 +327,30 @@ h1, h2, h3, h4, h5, h6,
 
 .about-image-item .image-placeholder {
     background-color: #c9c9c9;
-    width: 20%;
+    width: 100%;
+}
+
+/* ⭐ 控制about页面的img标签 */
+.about-image-item img {
+    width: 100%;              /* 填满父容器 */
+    height: auto;             /* 高度自动，保持比例 */
+    display: block;           /* 去除底部空隙 */
 }
 
 .about-image-item.portrait .image-placeholder {
     aspect-ratio: auto;
+}
+
+/* ⭐ 竖向图片样式 */
+.about-image-item.portrait img {
+    width: 100%;
+    height: auto;
+}
+
+/* ⭐ 横向图片样式 */
+.about-image-item.landscape img {
+    max-height: 400px;  /* 从250px增加到400px */
+    object-fit: cover;
 }
 
 
@@ -487,7 +506,7 @@ h1, h2, h3, h4, h5, h6,
 /* Responsive */
 @media (max-width: 1200px) {
     .about-container {
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 1fr 2fr;  /* 保持1/3比例 */
         gap: 60px;
     }
     
