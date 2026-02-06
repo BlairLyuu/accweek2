@@ -41,7 +41,7 @@ ul {
     padding: 0 60px;
 }
 
-/* 标题使用系统默认字体 */
+/* 标题字体 */
 h1, h2, h3, h4, h5, h6,
 .logo,
 .name,
@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     gap: 60px;
     font-size: 18px;
-    align-items: center;  /* 添加：居中对齐 */
+    align-items: center;  
 }
 
 .main-nav {
@@ -91,23 +91,23 @@ h1, h2, h3, h4, h5, h6,
     position: relative;
 }
 
-/* ⭐ 导航项位置（无动画）*/
+/* 导航项位置*/
 .main-nav li {
     position: relative;
-    /* 不添加transition，所以无动画，瞬间切换 */
+    
 }
 
-/* ⭐ 初始状态 - 所有导航项在同一水平线上 */
+/* 所有页面的基础位置 */
 .main-nav li:nth-child(1) {
-    transform: translateY(0px);   /* work - 同一水平线 */
+    transform: translateY(8px);  
 }
 
 .main-nav li:nth-child(2) {
-    transform: translateY(0px);   /* about - 同一水平线 */
+    transform: translateY(0px);   
 }
 
 .main-nav li:nth-child(3) {
-    transform: translateY(0px);   /* contact - 同一水平线 */
+    transform: translateY(-8px);  
 }
 
 .main-nav a {
@@ -120,17 +120,20 @@ h1, h2, h3, h4, h5, h6,
     opacity: 0.5;
 }
 
-/* ⭐ 点击后 - 只有被点击的项改变 */
+/* 波浪基础上额外上升 */
 .main-nav li:nth-child(1).active-nav {
-    transform: translateY(-15px) scale(1.1);  /* work点击后：上升+放大 */
+    
+    transform: translateY(-15px) scale(1.1);
 }
 
 .main-nav li:nth-child(2).active-nav {
-    transform: translateY(-15px) scale(1.1);  /* about点击后：上升+放大 */
+   
+    transform: translateY(-15px) scale(1.1);
 }
 
 .main-nav li:nth-child(3).active-nav {
-    transform: translateY(-15px) scale(1.1);  /* contact点击后：上升+放大 */
+   
+    transform: translateY(-20px) scale(1.1);
 }
 
 .sub-nav {
@@ -209,6 +212,8 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
+    position: relative;
 }
 
 .work-image-placeholder {
@@ -216,6 +221,7 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
     height: 450px;
     overflow: hidden;
+    border-radius: 2px;
 }
 
 .work-image-placeholder img {
@@ -227,8 +233,14 @@ h1, h2, h3, h4, h5, h6,
 
 .work-caption {
     text-align: right;
-    font-size: 14px;
-    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 60%;
 }
 
 /* ==================== */
@@ -251,16 +263,43 @@ h1, h2, h3, h4, h5, h6,
 .work-image-large .image-placeholder {
     background-color: #c9c9c9;
     width: 100%;
-    height: 500px;
-    overflow: hidden;  /* 添加：防止图片溢出 */
+    aspect-ratio: 16/10;
+    overflow: hidden;
 }
 
-/* ⭐ 添加：work页面图片样式 */
+/* work2 */
+.work-image-large .image-placeholder.work2-image {
+    aspect-ratio: 3/4;
+}
+
+/* work3 */
+.work-image-large .image-placeholder.work3-image {
+    aspect-ratio: 3/4;
+}
+
+/* work1 */
+.work-image-large .image-placeholder img[src*="work1"] {
+    aspect-ratio: 16/10;
+}
+
+/* work2  */
+.work-image-large .image-placeholder img[src*="work2"] {
+    aspect-ratio: 3/4;
+}
+
+/* work图片样式 */
 .work-image-large .image-placeholder img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* 让图片填满容器 */
+    object-fit: cover;
     display: block;
+}
+
+.work-image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 }
 
 .work-info {
@@ -293,7 +332,7 @@ h1, h2, h3, h4, h5, h6,
     margin-top: auto;
 }
 
-/* 当只有一个箭头时 */
+/* 只有一个箭头时 */
 .work-navigation:has(.prev-arrow:only-child) {
     justify-content: flex-start;
 }
@@ -352,7 +391,7 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 auto;
     padding: 0 60px;
     display: grid;
-    grid-template-columns: 2fr 3fr;  /* 左侧占2/5，右侧占3/5 */
+    grid-template-columns: 2fr 3fr; 
     gap: 80px;
 }
 
@@ -372,26 +411,26 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
 }
 
-/* ⭐ 控制about页面的img标签 */
+/* 控制about页面的img标签 */
 .about-image-item img {
-    width: 100%;              /* 填满父容器 */
-    height: auto;             /* 高度自动，保持比例 */
-    display: block;           /* 去除底部空隙 */
+    width: 100%;             
+    height: auto;            
+    display: block;      
 }
 
 .about-image-item.portrait .image-placeholder {
     aspect-ratio: auto;
 }
 
-/* ⭐ 竖向图片样式 */
+/*  竖向图片样式 */
 .about-image-item.portrait img {
     width: 100%;
     height: auto;
 }
 
-/* ⭐ 横向图片样式 */
+/* 横向图片样式 */
 .about-image-item.landscape img {
-    max-height: 400px;  /* 从250px增加到400px */
+    max-height: 400px;  
     object-fit: cover;
 }
 
@@ -548,7 +587,7 @@ h1, h2, h3, h4, h5, h6,
 /* Responsive */
 @media (max-width: 1200px) {
     .about-container {
-        grid-template-columns: 1fr 2fr;  /* 保持1/3比例 */
+        grid-template-columns: 1fr 2fr; 
         gap: 60px;
     }
     
@@ -647,7 +686,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Dancing Script', cursive;
     font-size: 32px;
     font-weight: 600;
-    color: rgb(225, 48, 108);  /* Instagram粉红色 */
+    color: rgb(39, 24, 24);  
 }
 
 .link-youtube {
@@ -656,7 +695,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'DM Serif Display', serif;
     font-size: 28px;
     font-style: italic;
-    color: rgb(255, 0, 0);  /* YouTube红色 */
+    color: rgb(190, 10, 10); 
 }
 
 .link-itch {
@@ -665,7 +704,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
     letter-spacing: 2px;
-    color: rgb(250, 92, 92);  /* Itch.io红色 */
+    color: rgb(39, 24, 24);  
 }
 
 .link-portfolio {
@@ -674,16 +713,16 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Lexend Deca', sans-serif;
     font-size: 22px;
     font-weight: 400;
-    color: rgb(76, 175, 80);  /* 绿色 */
+    color: rgb(190, 10, 10); 
 }
 
-.link-email {
+.link-website{
     bottom: 25%;
     right: 15%;
     font-family: 'Inconsolata', monospace;
     font-size: 24px;
     font-weight: 500;
-    color: rgb(66, 133, 244);  /* 蓝色 */
+    color: rgb(255, 0, 0); 
 }
 
 /* ==================== */
