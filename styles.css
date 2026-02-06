@@ -78,6 +78,7 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     gap: 60px;
     font-size: 18px;
+    align-items: center;  /* 添加：居中对齐 */
 }
 
 .main-nav {
@@ -90,6 +91,25 @@ h1, h2, h3, h4, h5, h6,
     position: relative;
 }
 
+/* ⭐ 导航项位置（无动画）*/
+.main-nav li {
+    position: relative;
+    /* 不添加transition，所以无动画，瞬间切换 */
+}
+
+/* ⭐ 初始状态 - 所有导航项在同一水平线上 */
+.main-nav li:nth-child(1) {
+    transform: translateY(0px);   /* work - 同一水平线 */
+}
+
+.main-nav li:nth-child(2) {
+    transform: translateY(0px);   /* about - 同一水平线 */
+}
+
+.main-nav li:nth-child(3) {
+    transform: translateY(0px);   /* contact - 同一水平线 */
+}
+
 .main-nav a {
     transition: opacity 0.3s ease;
     display: block;
@@ -98,6 +118,19 @@ h1, h2, h3, h4, h5, h6,
 .main-nav a:hover,
 .main-nav a.active {
     opacity: 0.5;
+}
+
+/* ⭐ 点击后 - 只有被点击的项改变 */
+.main-nav li:nth-child(1).active-nav {
+    transform: translateY(-15px) scale(1.1);  /* work点击后：上升+放大 */
+}
+
+.main-nav li:nth-child(2).active-nav {
+    transform: translateY(-15px) scale(1.1);  /* about点击后：上升+放大 */
+}
+
+.main-nav li:nth-child(3).active-nav {
+    transform: translateY(-15px) scale(1.1);  /* contact点击后：上升+放大 */
 }
 
 .sub-nav {
@@ -219,6 +252,15 @@ h1, h2, h3, h4, h5, h6,
     background-color: #c9c9c9;
     width: 100%;
     height: 500px;
+    overflow: hidden;  /* 添加：防止图片溢出 */
+}
+
+/* ⭐ 添加：work页面图片样式 */
+.work-image-large .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 让图片填满容器 */
+    display: block;
 }
 
 .work-info {
@@ -605,6 +647,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Dancing Script', cursive;
     font-size: 32px;
     font-weight: 600;
+    color: rgb(225, 48, 108);  /* Instagram粉红色 */
 }
 
 .link-youtube {
@@ -613,6 +656,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'DM Serif Display', serif;
     font-size: 28px;
     font-style: italic;
+    color: rgb(255, 0, 0);  /* YouTube红色 */
 }
 
 .link-itch {
@@ -621,6 +665,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
     letter-spacing: 2px;
+    color: rgb(250, 92, 92);  /* Itch.io红色 */
 }
 
 .link-portfolio {
@@ -629,6 +674,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Lexend Deca', sans-serif;
     font-size: 22px;
     font-weight: 400;
+    color: rgb(76, 175, 80);  /* 绿色 */
 }
 
 .link-email {
@@ -637,6 +683,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Inconsolata', monospace;
     font-size: 24px;
     font-weight: 500;
+    color: rgb(66, 133, 244);  /* 蓝色 */
 }
 
 /* ==================== */
