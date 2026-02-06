@@ -1,1 +1,4 @@
 # accweek2
+Building this site over the last two weeks was a "return to basics" for me. Last semester, my first website was mostly "vibe coding"，as it looked okay, but I didn’t completely understand the logic behind it. This time, I deliberately chose a minimalist style, stripping away the flashy animations to focus entirely on mastering CSS Grid and the core layout principles we've been learning.
+
+The process was definitely more challenging than it looks. I ran into several hurdles, like fixing broken image paths and figuring out how to display 16:10 game screenshots alongside 3:4 posters without anything looking distorted. Using the `aspect-ratio` property was a game-changer for keeping the gallery organized. I also spent a lot of time tweaking the About page, moving from a `1fr 2fr` grid to a `2fr 3fr` split to finally get the visual balance right.
